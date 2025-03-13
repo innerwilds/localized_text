@@ -399,8 +399,8 @@ class FluentR extends LocalizedTextGetter<FluentLocalizations> {
     180 => resource.colorLightYellow,
     181 => resource.colorIvory,
     182 => resource.colorWhite,
-    183 => resource.valueSliderTooltip(_$arg0, _$arg1),
-    184 => resource.alphaSliderTooltip(_$arg0),
+    183 => resource.valueSliderTooltip(_$arg0 as int, _$arg1 as String),
+    184 => resource.alphaSliderTooltip(_$arg0 as int),
     _ =>
       throw UnimplementedError(
         '${_$type} is unimplemented. This is a error of localized_text builder.',

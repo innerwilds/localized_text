@@ -222,7 +222,7 @@ class ResourceTemplate {
         isCallMode: true,
         getArgumentValue: (param) {
           final fieldName = createFieldName(parameterToFieldMap[param]!);
-          return fieldName;
+          return '$fieldName as ${param.type}';
         },
       );
 

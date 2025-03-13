@@ -51,12 +51,15 @@ class CatR extends LocalizedTextGetter<CatLocalizations> {
   @override
   String? getNullable(CatLocalizations resource) => switch (_$type) {
     0 => resource.meow,
-    1 => resource.countedMeows(_$arg0),
-    2 => resource.kittiesJungle(_$arg0, someKittyName: _$arg1),
-    3 => resource.namedOnly(someKittyName: _$arg0),
-    4 => resource.positionalOnly(_$arg0),
-    5 => resource.optionalPositionalOnly(_$arg0),
-    6 => resource.positionalAndOptionalPositional(_$arg0, _$arg1),
+    1 => resource.countedMeows(_$arg0 as int),
+    2 => resource.kittiesJungle(_$arg0 as int, someKittyName: _$arg1 as String),
+    3 => resource.namedOnly(someKittyName: _$arg0 as String),
+    4 => resource.positionalOnly(_$arg0 as int),
+    5 => resource.optionalPositionalOnly(_$arg0 as int?),
+    6 => resource.positionalAndOptionalPositional(
+      _$arg0 as int,
+      _$arg1 as String?,
+    ),
     _ =>
       throw UnimplementedError(
         '${_$type} is unimplemented. This is a error of localized_text builder.',
