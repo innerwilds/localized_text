@@ -5,11 +5,11 @@ import 'package:localized_text_annotation/localized_text_annotation.dart';
 import 'package:source_gen/source_gen.dart';
 
 class LocalizedTextGenerator extends GeneratorForAnnotation<LocalizedTextAnnotation> {
-  LocalizedTextGenerator();
+  LocalizedTextGenerator() : super(throwOnUnresolved: false);
 
   @override
-  Future<String> generateForAnnotatedElement(
-      Element element, ConstantReader annotation, BuildStep buildStep) async {
+  Iterable<String?> generateForAnnotatedElement(
+      Element element, ConstantReader annotation, BuildStep buildStep) sync* {
     // Get the class name from the annotation
     final rNameToType = annotation.read('rNameToType').mapValue;
     final skipDeprecatedMembers = annotation.read('skipDeprecatedMembers').boolValue;
@@ -19,13 +19,11 @@ class LocalizedTextGenerator extends GeneratorForAnnotation<LocalizedTextAnnotat
         entry.key!.toStringValue()!: entry.value!.toTypeValue()!.element as ClassElement,
     };
 
-    final buffer = StringBuffer();
-
     for (final entry in typeMap.entries) {
       final template = ResourceTemplate(rName: entry.key, classElement: entry.value, skipDeprecatedMembers: skipDeprecatedMembers);
-      buffer.writeln(template);
+      yield template.toString();
     }
 
-    return buffer.toString();
+    yield null;
   }
 }
