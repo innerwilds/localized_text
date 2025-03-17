@@ -6,7 +6,6 @@ targets:
         generate_for:
           exclude:
             - example
-            - test/source_gen_src.dart
           include:
             - test/*
             - test/**/*
@@ -21,6 +20,6 @@ builders:
   localized_text:
     import: "package:localized_text/builder.dart"
     builder_factories: ["localized_text"]
-    build_extensions: { ".dart": [".g.dart"] }
+    build_extensions: { ".dart": [".ltr.dart"] }
     auto_apply: dependents
     build_to: source

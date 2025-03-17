@@ -8,7 +8,7 @@ Builder localized_text(BuilderOptions options) {
     [
       LocalizedTextGenerator(),
     ],
-    '.g.dart',
+    '.ltr.dart',
     header: '''
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
